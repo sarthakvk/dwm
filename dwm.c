@@ -710,12 +710,9 @@ drawbar(Monitor *m)
 	unsigned int i, occ = 0, urg = 0;
 	Client *c;
 
-	/* draw status first so it can be overdrawn by tags later */
-	if (m == selmon) { /* status is only drawn on selected monitor */
-		drw_setscheme(drw, scheme[SchemeNorm]);
-		tw = TEXTW(stext) - lrpad + 2; /* 2px right padding */
-		drw_text(drw, m->ww - tw, 0, tw, bh, 0, stext, 0);
-	}
+	drw_setscheme(drw, scheme[SchemeNorm]);
+	tw = TEXTW(stext) - lrpad + 2; /* 2px right padding */
+	drw_text(drw, m->ww - tw, 0, tw, bh, 0, stext, 0);
 
 	for (c = m->clients; c; c = c->next) {
 		occ |= c->tags;
@@ -750,7 +747,6 @@ drawbar(Monitor *m)
 	}
 	drw_map(drw, m->barwin, 0, 0, m->ww, bh);
 
-	if (m == selmon) { /* extra status is only drawn on selected monitor */
 		drw_setscheme(drw, scheme[SchemeNorm]);
 		/* clear default bar draw buffer by drawing a blank rectangle */
 		drw_rect(drw, 0, 0, m->ww, bh, 1, 1);
@@ -761,7 +757,6 @@ drawbar(Monitor *m)
 			drw_text(drw, 0, 0, mons->ww, bh, 0, estext, 0);
 		}
 		drw_map(drw, m->extrabarwin, 0, 0, m->ww, bh);
-	}
 }
 
 void
@@ -2063,7 +2058,7 @@ updatestatus(void)
 		}
 		strncpy(stext, text, sizeof(stext) - 1);
 	}
-	drawbar(selmon);
+	drawbars();
 }
 
 void
