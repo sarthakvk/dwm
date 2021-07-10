@@ -5,7 +5,7 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const int extrabarright      = 0;        /* 1 means extra bar text on right */
+static const int extrabarright      = 1;        /* 1 means extra bar text on right */
 static const char statussep         = ';';      /* separator between status bars */
 static const char *fonts[]          = { "JetBrainsMono Nerd Font:Regular:size=12" };
 static const char dmenufont[]       = "JetBrainsMono Nerd Font:size=10";
@@ -16,10 +16,21 @@ static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
 static const char col_lblue[]	    = "#3489eb";
 static const char col_black[]	    = "#000000";
+
+static const unsigned int baralpha = 0xd0;
+static const unsigned int borderalpha = OPAQUE;
+
 static const char *colors[][3]      = {
-	/*               fg         bg         border   */
+/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_black, col_gray2 },
 	[SchemeSel]  = { col_lblue, col_black,  col_cyan  },
+};
+
+
+static const unsigned int alphas[][3]      = {
+	/*               fg      bg        border     */
+	[SchemeNorm] = { OPAQUE, baralpha, borderalpha },
+	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
 };
 
 /* tagging */
