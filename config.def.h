@@ -7,8 +7,8 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int extrabarright      = 0;        /* 1 means extra bar text on right */
 static const char statussep         = ';';      /* separator between status bars */
-static const char *fonts[]          = { "JetBrains Mono:Regular:size=12" };
-static const char dmenufont[]       = "JetBrains Mono:size=10";
+static const char *fonts[]          = { "JetBrainsMono Nerd Font:Regular:size=12" };
+static const char dmenufont[]       = "JetBrainsMono Nerd Font:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
