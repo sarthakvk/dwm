@@ -19,11 +19,11 @@ index 1c0b587..e6c2565 100644
 --- a/config.def.h
 +++ b/config.def.h
 @@ -20,6 +20,7 @@ static const char *colors[][3]      = {
- 
+
  /* tagging */
  static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 +static const char *tagsalt[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
- 
+
  static const Rule rules[] = {
  	/* xprop(1):
 @@ -84,6 +85,7 @@ static Key keys[] = {
@@ -44,7 +44,7 @@ index 4465af1..ee292e1 100644
  	const Layout *lt[2];
 +	unsigned int alttag;
  };
- 
+
  typedef struct {
 @@ -209,6 +210,7 @@ static void spawn(const Arg *arg);
  static void tag(const Arg *arg);
@@ -77,7 +77,7 @@ index 4465af1..ee292e1 100644
 @@ -1696,6 +1699,13 @@ tile(Monitor *m)
  		}
  }
- 
+
 +void
 +togglealttag()
 +{
@@ -88,6 +88,5 @@ index 4465af1..ee292e1 100644
  void
  togglebar(const Arg *arg)
  {
--- 
+--
 2.21.0
-
